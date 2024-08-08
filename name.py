@@ -13,21 +13,37 @@ element_list = [
     '铊', '铅', '铋', '钋', '砹', '氡', '钫', '镭', '锕', '钍', 
     '镤', '铀', '镎', '钚', '镅', '锔', '锫', '锎', '锿', '镄',
     '钔', '锘', '铹', '𬬻', '𬭊', '𬭳', '𬭛', '𬭶', '鿏', '𫟼',
-    '𬬭', '鿔', '鿭', '𫓧', '镆', '𫟷', '鿬', '鿫']
+    '𬬭', '鿔', '鿭', '𫓧', '镆', '𫟷', '鿬', '鿫'
+]
 
-# 元素拼音列表（含音调）
-element_pinyin_tone = lazy_pinyin(element_list, style=Style.TONE)
+# 有机物名称列表
+organic_list = [
+    '烷', '烯', '炔', '烃', '醇', '醛', '酮', '醚', '酯', '酸',
+    '苯', '蒽',
+    '胺', '酰'
+]
 
-# 元素拼音列表（不含音调）
-element_pinyin_normal = lazy_pinyin(element_list, style=Style.NORMAL)
+# 其他名称列表
+other_list = [
+    '氨'
+]
 
-# 元素拼音名称映射（含音调）
-element_pinyin_tone_dict = dict()
-for i in range(len(element_list)):
-    element_pinyin_tone_dict[element_pinyin_tone[i]] = element_list[i]
+# 合并列表
+name_list = element_list + organic_list + other_list
 
-# 元素拼音名称映射（不含音调）
-element_pinyin_normal_dict = dict()
-for i in range(len(element_list)):
-    element_pinyin_normal_dict[element_pinyin_normal[i]] = element_list[i]
+# 拼音列表（含音调）
+name_pinyin_tone = lazy_pinyin(name_list, style=Style.TONE)
+
+# 拼音列表（不含音调）
+name_pinyin_normal = lazy_pinyin(name_list, style=Style.NORMAL)
+
+# 拼音名称映射（含音调）
+name_pinyin_tone_dict = dict()
+for i in range(len(name_list)):
+    name_pinyin_tone_dict[name_pinyin_tone[i]] = name_list[i]
+
+# 拼音名称映射（不含音调）
+name_pinyin_normal_dict = dict()
+for i in range(len(name_list)):
+    name_pinyin_normal_dict[name_pinyin_normal[i]] = name_list[i]
     

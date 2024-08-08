@@ -1,5 +1,5 @@
 from pypinyin import pinyin, lazy_pinyin, Style
-import element
+import name
 
 def elementalizer(source):
     # 将源字符串转为列表
@@ -12,11 +12,11 @@ def elementalizer(source):
     # 生成翻译字典
     translate_map = dict()
     for i in range(len(source_pinyin_tone)):
-        if source_pinyin_tone[i] in element.element_pinyin_tone:
-            translate_map[source_list[i]] = element.element_pinyin_tone_dict[source_pinyin_tone[i]]
+        if source_pinyin_tone[i] in name.name_pinyin_tone:
+            translate_map[source_list[i]] = name.name_pinyin_tone_dict[source_pinyin_tone[i]]
         else:
-            if source_pinyin_normal[i] in element.element_pinyin_normal:
-                translate_map[source_list[i]] = element.element_pinyin_normal_dict[source_pinyin_normal[i]]
+            if source_pinyin_normal[i] in name.name_pinyin_normal:
+                translate_map[source_list[i]] = name.name_pinyin_normal_dict[source_pinyin_normal[i]]
 
     translation = str.maketrans(translate_map)
 
