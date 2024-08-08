@@ -14,13 +14,19 @@ a text elementalizer replacing the appropriate text with the name of the chemica
    git clone https://github.com/Snoopy1866/text-elementalizer.git
    ```
 
-2. Install dependencies
+2. Change directory to the cloned repo
+
+   ```
+   cd text-elementalizer
+   ```
+
+3. Install dependencies
 
    ```
    pip install pypinyin
    ```
 
-3. Run the program
+4. Run the program
 
    ```
    python main.py
