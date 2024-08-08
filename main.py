@@ -28,7 +28,9 @@ def elementalizer(source, ignore_tone = True):
             pinyin_tone   = source_pinyin_tone[i]
             pinyin_normal = source_pinyin_normal[i]
 
-            if pinyin_tone in name.name_pinyin_tone:
+            if source_char in name.exclude_list:
+                continue
+            elif pinyin_tone in name.name_pinyin_tone:
                 translate_map[source_char] = name.name_pinyin_tone_dict[pinyin_tone]
             elif pinyin_normal in name.name_pinyin_normal:
                 translate_map[source_char] = name.name_pinyin_normal_dict[pinyin_normal]
@@ -38,7 +40,9 @@ def elementalizer(source, ignore_tone = True):
             pinyin_tone   = source_pinyin_tone[i]
             pinyin_normal = source_pinyin_normal[i]
 
-            if pinyin_tone in name.name_pinyin_tone:
+            if source_char in name.exclude_list:
+                continue
+            elif pinyin_tone in name.name_pinyin_tone:
                 translate_map[source_char] = name.name_pinyin_tone_dict[pinyin_tone]
 
     translation = str.maketrans(translate_map)
