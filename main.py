@@ -58,9 +58,9 @@ try:
         source = input('请输入要翻译的字符串：')
         ignore_tone = input('是否忽略音调？（Y/N，默认为 N）')
         if ignore_tone.upper() == 'Y':
-            print('翻译结果：' + elementalizer(source))
+            print('翻译结果：' + elementalizer(source) + '\n')
         else:
-            print('翻译结果：' + elementalizer(source, ignore_tone = False))
+            print('翻译结果：' + elementalizer(source, ignore_tone = False) + '\n')
         
 except KeyboardInterrupt:
     pass
