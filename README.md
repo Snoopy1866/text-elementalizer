@@ -6,9 +6,13 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 
 基于汉语拼铟，将输铷文苯中锝中文字氟锑换为对荧锝化学芴酯名称。
 
-![](./example.png)
+## Examples
 
-# How to use
+1. `祸兮福之所倚，福兮祸之所伏。` => `祸烯氟之所钇，氟烯祸之所氟。` => `钬烯氟酯所钇，氟烯钬酯所氟。`
+2. `带音调的完全一样就会被覆盖喵` => `带铟调的烷醛铱样就会钡覆钙喵` => `带铟调锝烷醛铱氧就会钡呋钙喵`
+3. `字典不能有重复值` => `字碘钚能铕重复值` => `字碘钚能铕重呋酯`
+
+## How to use
 
 1. Clone this repo
 
@@ -34,6 +38,6 @@ a text elementalizer replacing the appropriate text with the name of the chemica
    python main.py
    ```
 
-# Acknowledgements
+## Acknowledgements
 
 - [pypinyin](https://github.com/mozillazg/python-pinyin)

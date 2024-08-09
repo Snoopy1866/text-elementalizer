@@ -55,12 +55,11 @@ def elementalizer(source, ignore_tone = True):
 # 简单交互
 try:
     while True:
-        source = input('请输入要翻译的字符串：')
+        source = input('请输入要转换的字符串：')
         ignore_tone = input('是否忽略音调？（Y/N，默认为 N）')
         if ignore_tone.upper() == 'Y':
-            print('翻译结果：' + elementalizer(source) + '\n')
+            print('转换结果：' + elementalizer(source) + '\n')
         else:
-            print('翻译结果：' + elementalizer(source, ignore_tone = False) + '\n')
-        
+            print('转换结果：' + elementalizer(source, ignore_tone = False) + '\n')
 except KeyboardInterrupt:
     pass
