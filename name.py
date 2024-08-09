@@ -1,4 +1,4 @@
-from pypinyin import pinyin, lazy_pinyin, Style
+from pypinyin import pinyin, lazy_pinyin, load_single_dict, Style
 
 # 元素名称列表
 element_list = [
@@ -58,6 +58,9 @@ exclude_list = [
     'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
     'W', 'X', 'Y', 'Z',
 ]
+
+# 修正拼音
+load_single_dict({ord('薁'): 'ào'})
 
 # 拼音列表（含音调）
 name_pinyin_tone = lazy_pinyin(name_list, style=Style.TONE)
