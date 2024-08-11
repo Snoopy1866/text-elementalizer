@@ -32,9 +32,11 @@ def elementalizer(source, ignore_tone = True):
             if source_char in name.exclude_list:
                 continue
             elif pinyin_tone in name.name_pinyin_tone:
-                translate_map[source_char] = random.choice(name.name_pinyin_tone_dict[pinyin_tone])
+                candidate_list = name.name_pinyin_tone_dict[pinyin_tone]
+                translate_map[source_char] = random.choice(candidate_list)
             elif pinyin_normal in name.name_pinyin_normal:
-                translate_map[source_char] = random.choice(name.name_pinyin_normal_dict[pinyin_normal])
+                candidate_list = name.name_pinyin_normal_dict[pinyin_normal]
+                translate_map[source_char] = random.choice(candidate_list)
     else:
         for i in range(len(source_pinyin_tone)):
             source_char = source_list[i]
@@ -44,7 +46,8 @@ def elementalizer(source, ignore_tone = True):
             if source_char in name.exclude_list:
                 continue
             elif pinyin_tone in name.name_pinyin_tone:
-                translate_map[source_char] = random.choice(name.name_pinyin_tone_dict[pinyin_tone])
+                candidate_list = name.name_pinyin_tone_dict[pinyin_tone]
+                translate_map[source_char] = random.choice(candidate_list)
 
     translation = str.maketrans(translate_map)
 
