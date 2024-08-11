@@ -71,10 +71,20 @@ name_pinyin_normal = lazy_pinyin(name_list, style=Style.NORMAL)
 # 拼音名称映射（含音调）
 name_pinyin_tone_dict = dict()
 for i in range(len(name_list)):
-    name_pinyin_tone_dict[name_pinyin_tone[i]] = name_list[i]
+    if name_pinyin_tone_dict.get(name_pinyin_tone[i]) == None:
+        name_pinyin_tone_dict[name_pinyin_tone[i]] = [name_list[i]]
+    else:
+        same_pinyin_list = name_pinyin_tone_dict[name_pinyin_tone[i]]
+        same_pinyin_list.append(name_list[i])
+        name_pinyin_tone_dict[name_pinyin_tone[i]] = same_pinyin_list
 
 # 拼音名称映射（不含音调）
 name_pinyin_normal_dict = dict()
 for i in range(len(name_list)):
-    name_pinyin_normal_dict[name_pinyin_normal[i]] = name_list[i]
+    if name_pinyin_normal_dict.get(name_pinyin_normal[i]) == None:
+        name_pinyin_normal_dict[name_pinyin_normal[i]] = [name_list[i]]
+    else:
+        same_pinyin_list = name_pinyin_normal_dict[name_pinyin_normal[i]]
+        same_pinyin_list.append(name_list[i])
+        name_pinyin_normal_dict[name_pinyin_normal[i]] = same_pinyin_list
     
