@@ -39,6 +39,12 @@ a text elementalizer replacing the appropriate text with the name of the chemica
    python main.py
    ```
 
+## FAQ
+
+#### 为什么每次转换的结果都不一样
+
+因为存在相当多的同音同调汉字，每次转换都会随机选择一个匹配同音调的汉字，例如：音调 `xī` 对应的汉字就有：`锡`, `烯`, `硒`。
+
 ## Acknowledgements
 
 - [pypinyin](https://github.com/mozillazg/python-pinyin)
