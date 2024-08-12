@@ -87,4 +87,3 @@ for i in range(len(name_list)):
         same_pinyin_list = name_pinyin_normal_dict[name_pinyin_normal[i]]
         same_pinyin_list.append(name_list[i])
         name_pinyin_normal_dict[name_pinyin_normal[i]] = same_pinyin_list
-    
