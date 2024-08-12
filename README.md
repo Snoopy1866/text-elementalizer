@@ -39,38 +39,19 @@ a text elementalizer replacing the appropriate text with the name of the chemica
    cd text-elementalizer
    ```
 
-3. Install dependencies
+3. Initialize
 
    ```
-   pip install -r requirements.txt
+   python init.py
    ```
 
-4. Create a spec file
-
-   ```
-   pyi-makespec main.py -w -n 'text-elementalizer'
-   ```
-
-5. Edit the spec file
-
-   由于 `pypinyin` 模块包含拼音库文件，因此需要在 `spec` 文件中手动修改 `Analysis` 实例对象的 `datas` 属性为拼音库文件路径，默认为 `~\site-packages\pypinyin\*.json`。
-
-   例如：
-
-   ```
-   datas=[('C:\\Users\\xxx\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pypinyin\\pinyin_dict.json', 'pypinyin'),
-          ('C:\\Users\\xxx\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pypinyin\\phrases_dict.json', 'pypinyin')],
-   ```
-
-   其中，`xxx` 是你的用户名。
-
-6. Build the application
+4. Build the application
 
    ```
    pyinstaller text-elementalizer.spec
    ```
 
-7. Run the application
+5. Run the application
 
    你可以在 `dist` 目录下找到编译好的应用程序。
 
