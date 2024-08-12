@@ -1,69 +1,40 @@
-from pypinyin import pinyin, lazy_pinyin, Style
-import name
-import random
+import PySimpleGUI as psg
+import elementalizer as ele
 
-def elementalizer(source, ignore_tone = True):
-    """
-    基于汉语拼音，将字符串中的汉字转换为对应的化学词汇
+layout = [
+    [psg.Text('请输入需要转换的文本：'),
+     psg.Input(key = 'txt_source', expand_x = True, enable_events = True)],
 
-    参数:
-    - source: 待转换的字符串
-    - ignore_tone: 是否忽略音调，默认为 True
+    [psg.Checkbox('忽略音调', key = 'chk_ignore_tone', default = False, enable_events = True)],
 
-    返回值:
-    转换后的字符串
-    """
+    [psg.Text('转换结果：'),
+     psg.Text(key = 'txt_result'),
+     psg.Button('重新生成', key = 'btn_regenerate'),
+     psg.Button('复制结果', key = 'btn_copy'),
+     psg.Text(key = 'txt_copy_hint', visible = False)]
+]
 
-    # 将源字符串转为列表
-    source_list = list(source)
+window = psg.Window('化学名称文本转换器', layout)
+while True:
+    event, values = window.read()
 
-    # 生成源字符串的拼音列表
-    source_pinyin_tone   = lazy_pinyin(source_list, style = Style.TONE)
-    source_pinyin_normal = lazy_pinyin(source_list, style = Style.NORMAL)
+    print(event, values)
+    if event == psg.WIN_CLOSED:
+        break
 
-    # 生成翻译字典
-    translate_map = dict()
-    if ignore_tone:
-        for i in range(len(source_pinyin_tone)):
-            source_char = source_list[i]
-            pinyin_tone   = source_pinyin_tone[i]
-            pinyin_normal = source_pinyin_normal[i]
+    # 复制结果
+    if event == 'btn_copy':
+        psg.clipboard_set(window['txt_result'].get())
+        window['txt_copy_hint'].update('已复制到剪贴板', visible = True)
 
-            if source_char in name.exclude_list:
-                continue
-            elif pinyin_tone in name.name_pinyin_tone:
-                candidate_list = name.name_pinyin_tone_dict[pinyin_tone]
-                translate_map[source_char] = random.choice(candidate_list)
-            elif pinyin_normal in name.name_pinyin_normal:
-                candidate_list = name.name_pinyin_normal_dict[pinyin_normal]
-                translate_map[source_char] = random.choice(candidate_list)
-    else:
-        for i in range(len(source_pinyin_tone)):
-            source_char = source_list[i]
-            pinyin_tone   = source_pinyin_tone[i]
-            pinyin_normal = source_pinyin_normal[i]
-
-            if source_char in name.exclude_list:
-                continue
-            elif pinyin_tone in name.name_pinyin_tone:
-                candidate_list = name.name_pinyin_tone_dict[pinyin_tone]
-                translate_map[source_char] = random.choice(candidate_list)
-
-    translation = str.maketrans(translate_map)
-
-    # 翻译源字符串
-    source_translated = source.translate(translation)
-    return(source_translated)
-
-
-# 简单交互
-try:
-    while True:
-        source = input('请输入要转换的字符串：')
-        ignore_tone = input('是否忽略音调？（Y/N，默认为 N）')
-        if ignore_tone.upper() == 'Y':
-            print('转换结果：' + elementalizer(source) + '\n')
+    # 转换文本
+    if event in ['txt_source', 'chk_ignore_tone', 'btn_regenerate']:
+        if values['chk_ignore_tone']:
+            result = ele.elementalizer(values['txt_source'], ignore_tone = True)
         else:
-            print('转换结果：' + elementalizer(source, ignore_tone = False) + '\n')
-except KeyboardInterrupt:
-    pass
+            result = ele.elementalizer(values['txt_source'], ignore_tone = False)
+
+    # 更新结果
+    window['txt_result'].update(result)
+
+window.close()
