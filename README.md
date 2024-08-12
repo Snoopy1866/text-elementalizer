@@ -42,7 +42,7 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 3. Install dependencies
 
    ```
-   pip install pypinyin PySimpleGUI pyinstaller
+   pip install -r requirements.txt
    ```
 
 4. Create a spec file
