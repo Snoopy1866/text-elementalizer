@@ -17,6 +17,16 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 
 ## How to use
 
+前往 [Releases](https://github.com/Snoopy1866/text-elementalizer/releases/latest) 下载。
+
+## FAQ
+
+#### 为什么每次转换的结果都不一样
+
+因为存在相当多的同音同调汉字，每次转换都会随机选择一个匹配同音调的汉字，例如：音调 `xī` 对应的汉字就有：`锡`, `烯`, `硒`。
+
+## Build
+
 1. Clone this repo
 
    ```
@@ -32,22 +42,40 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 3. Install dependencies
 
    ```
-   pip install pypinyin PySimpleGUI
+   pip install pypinyin PySimpleGUI pyinstaller
    ```
 
-4. Run the program
+4. Create a spec file
 
    ```
-   python main.py
+   pyi-makespec main.py -w -n 'text-elementalizer'
    ```
 
-## FAQ
+5. Edit the spec file
 
-#### 为什么每次转换的结果都不一样
+   由于 `pypinyin` 模块包含拼音库文件，因此需要在 `spec` 文件中手动修改 `Analysis` 实例对象的 `datas` 属性为拼音库文件路径，默认为 `~\site-packages\pypinyin\*.json`。
 
-因为存在相当多的同音同调汉字，每次转换都会随机选择一个匹配同音调的汉字，例如：音调 `xī` 对应的汉字就有：`锡`, `烯`, `硒`。
+   例如：
+
+   ```
+   datas=[('C:\\Users\\xxx\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pypinyin\\pinyin_dict.json', 'pypinyin'),
+          ('C:\\Users\\xxx\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pypinyin\\phrases_dict.json', 'pypinyin')],
+   ```
+
+   其中，`xxx` 是你的用户名。
+
+6. Build the application
+
+   ```
+   pyinstaller text-elementalizer.spec
+   ```
+
+7. Run the application
+
+   你可以在 `dist` 目录下找到编译好的应用程序。
 
 ## Acknowledgements
 
 - [pypinyin](https://github.com/mozillazg/python-pinyin)
 - [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
+- [PyInstaller](https://github.com/pyinstaller/pyinstaller)
