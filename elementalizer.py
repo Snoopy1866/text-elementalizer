@@ -8,7 +8,7 @@ def elementalizer(source, ignore_tone = True):
 
     参数:
     - source: 待转换的字符串
-    - ignore_tone: 是否忽略音调，默认为 True
+    - ignore_tone: 是否模糊音调，默认为 True
 
     返回值:
     转换后的字符串

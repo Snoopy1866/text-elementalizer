@@ -5,7 +5,7 @@ layout = [
     [psg.Text('请输入需要转换的文本：'),
      psg.Input(key = 'txt_source', expand_x = True, enable_events = True)],
 
-    [psg.Checkbox('忽略音调', key = 'chk_ignore_tone', default = False, enable_events = True)],
+    [psg.Checkbox('模糊音调', key = 'chk_ignore_tone', default = False, enable_events = True)],
 
     [psg.Text('转换结果：'),
      psg.Text(key = 'txt_result'),
