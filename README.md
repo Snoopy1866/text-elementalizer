@@ -30,7 +30,7 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 3. Install dependencies
 
    ```
-   pip install pypinyin
+   pip install pypinyin PySimpleGUI
    ```
 
 4. Run the program
@@ -48,3 +48,4 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 ## Acknowledgements
 
 - [pypinyin](https://github.com/mozillazg/python-pinyin)
+- [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
