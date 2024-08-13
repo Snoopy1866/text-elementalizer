@@ -1,9 +1,12 @@
 from pathlib import Path
 import os
-import pypinyin
+import importlib
 
 # Install dependencies
 os.system('pip install -r requirements.txt')
+
+# Dynamic import pypinyin
+pypinyin = importlib.import_module('pypinyin')
 
 # Search pypinyin dict
 pypinyin_dir = Path(os.path.dirname(pypinyin.__file__))
