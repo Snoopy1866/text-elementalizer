@@ -6,6 +6,8 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 
 基于汉语拼铟，将输铷文苯中锝中文字氟锑换为对荧锝化学芴酯名称。
 
+感谢 [@adpro](https://github.com/adproqwq) 为本项目提供图标，如果您正在使用 [LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)，可前往 [LiteLoaderQQNT-Kemisago](https://github.com/adproqwq/LiteLoaderQQNT-Kemisago) 使用本项目的插件移植版。
+
 ## Examples
 
 以下例句分别展示：`原句` => `不模糊声调转换结果` => `模糊声调转换结果`
@@ -57,6 +59,7 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 
 ## Acknowledgements
 
+- [LiteLoaderQQNT-Kemisago](https://github.com/adproqwq/LiteLoaderQQNT-Kemisago)
 - [pypinyin](https://github.com/mozillazg/python-pinyin)
 - [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
 - [PyInstaller](https://github.com/pyinstaller/pyinstaller)
