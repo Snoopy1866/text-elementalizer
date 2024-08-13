@@ -1,5 +1,6 @@
 import PySimpleGUI as psg
 import elementalizer as ele
+import icon
 
 layout = [
     [psg.Text('请输入需要转换的文本：'),
@@ -14,7 +15,7 @@ layout = [
      psg.Text(key = 'txt_copy_hint', visible = False)]
 ]
 
-window = psg.Window('化学名称文本转换器', layout)
+window = psg.Window('化学名称文本转换器', layout, icon = icon.icon)
 while True:
     event, values = window.read()
 
