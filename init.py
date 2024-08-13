@@ -16,5 +16,5 @@ pypinyin_dict_files = list(pypinyin_dir.glob('**/*.json'))
 os.system(f'pyi-makespec main.py -w -n text-elementalizer \
                                  --add-data={pypinyin_dict_files[0]}:pypinyin \
                                  --add-data={pypinyin_dict_files[1]}:pypinyin \
-                                 --icon=src/icon.ico \
+                                 --icon=res/icon.ico \
                                  ')
