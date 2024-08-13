@@ -10,7 +10,7 @@ pypinyin = importlib.import_module('pypinyin')
 
 # Search pypinyin dict
 pypinyin_dir = Path(os.path.dirname(pypinyin.__file__))
-pypinyin_dict_files = list(pypinyin_dir.glob('**/*.json'))
+pypinyin_dict_files = list(pypinyin_dir.glob('*_dict.json'))
 
 # Generate pyinstaller spec
 os.system(f'pyi-makespec main.py -w -n text-elementalizer \
