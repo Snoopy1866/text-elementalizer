@@ -57,6 +57,9 @@ a text elementalizer replacing the appropriate text with the name of the chemica
 
    你可以在 `dist` 目录下找到编译好的应用程序。
 
+> [!NOTE]
+> When init.py changes, you need to run the step 3 again!
+
 ## Acknowledgements
 
 - [LiteLoaderQQNT-Kemisago](https://github.com/adproqwq/LiteLoaderQQNT-Kemisago)
