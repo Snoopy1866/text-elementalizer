@@ -1,5 +1,5 @@
 import PySimpleGUI as psg
-import elementalizer as ele
+from elementalizer import elementalizer
 import icon
 
 layout = [
@@ -31,9 +31,9 @@ while True:
     # 转换文本
     if event in ['txt_source', 'chk_ignore_tone', 'btn_regenerate']:
         if values['chk_ignore_tone']:
-            result = ele.elementalizer(values['txt_source'], ignore_tone = True)
+            result = elementalizer(values['txt_source'], ignore_tone = True)
         else:
-            result = ele.elementalizer(values['txt_source'], ignore_tone = False)
+            result = elementalizer(values['txt_source'], ignore_tone = False)
 
     # 更新结果
     window['txt_result'].update(result)
