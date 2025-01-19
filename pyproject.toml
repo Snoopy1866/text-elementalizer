@@ -1,0 +1,19 @@
+[project]
+name = "text-elementalizer"
+version = "0.2.0"
+description = "Replace the appropriate text with the name of the chemical material based on pinyin"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pypinyin==0.52.0",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller==6.10.0",
+    "ruff==0.9.2",
+    "tkintertools==3.0.0rc6",
+]
+
+[tool.ruff]
+line-length = 120
