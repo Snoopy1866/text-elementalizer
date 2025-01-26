@@ -1,8 +1,9 @@
-from pypinyin import pinyin, lazy_pinyin, Style
+from pypinyin import lazy_pinyin, Style
 import name
 import random
 
-def elementalizer(source, ignore_tone = True):
+
+def elementalizer(source, ignore_tone=True):
     """
     基于汉语拼音，将字符串中的汉字转换为对应的化学词汇
 
@@ -18,8 +19,8 @@ def elementalizer(source, ignore_tone = True):
     source_list = list(source)
 
     # 生成源字符串的拼音列表
-    source_pinyin_tone   = lazy_pinyin(source_list, style = Style.TONE)
-    source_pinyin_normal = lazy_pinyin(source_list, style = Style.NORMAL)
+    source_pinyin_tone = lazy_pinyin(source_list, style=Style.TONE)
+    source_pinyin_normal = lazy_pinyin(source_list, style=Style.NORMAL)
 
     # 生成翻译字典
     translate_map = dict()
@@ -36,7 +37,7 @@ def elementalizer(source, ignore_tone = True):
     else:
         for i in range(len(source_pinyin_tone)):
             source_char = source_list[i]
-            pinyin_tone   = source_pinyin_tone[i]
+            pinyin_tone = source_pinyin_tone[i]
 
             if source_char in name.exclude_list:
                 continue
@@ -48,4 +49,4 @@ def elementalizer(source, ignore_tone = True):
 
     # 翻译源字符串
     source_translated = source.translate(translation)
-    return(source_translated)
+    return source_translated

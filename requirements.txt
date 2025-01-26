@@ -1,3 +1,0 @@
-pypinyin==0.52.0
-PySimpleGUI==5.0.6
-pyinstaller==6.10.0
